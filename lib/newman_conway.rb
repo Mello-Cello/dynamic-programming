@@ -11,9 +11,7 @@ def newman_conway(num)
     string_solution << "#{char.to_s} "
   end
 
-  string_solution.delete_suffix!(" ")
-
-  return string_solution
+  return string_solution[0...-1]
 end
 
 def p(n, s)

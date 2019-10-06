@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-xdescribe "max subarray" do
+describe "max subarray" do
   it "will work for [-2,1,-3,4,-1,2,1,-5,4]" do
     # Arrange
     input = [-2,1,-3,4,-1,2,1,-5,4]
@@ -59,6 +59,19 @@ xdescribe "max subarray" do
   it "will work for [50, -50, 50]" do
     # Arrange
     input = [50, -50, 50]
+
+    # Act
+    answer = max_sub_array(input)
+
+    # Assert
+    expect(answer).must_equal 50
+  end
+
+  it "will work for [50, -51, 50]" do
+    # This test (which I added) is failing
+    
+    # Arrange
+    input = [50, -51, 50]
 
     # Act
     answer = max_sub_array(input)
