@@ -80,4 +80,15 @@ describe "max subarray" do
     expect(answer).must_equal 50
   end
 
+  it "will work for [-2,1,-3,4,-1,2,1,-5,4,12]" do
+    # Arrange
+    input = [4,-2,1,-3,4,-1,2,1,-5,4,12]
+
+    # Act
+    answer = max_sub_array(input)
+
+    # Assert
+    expect(answer).must_equal 17
+  end
+
 end

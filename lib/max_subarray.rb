@@ -6,18 +6,12 @@ def max_sub_array(nums)
     return nil if nums == []
     
     max_so_far = nums[0]
-    max_ending_here = nums[0]
+    sum_ending_here = nums[0]
 
     nums[1..-1].each do |num|
-        
-        max_ending_here = max_ending_here + num
-        
-        if max_ending_here < 0
-            max_so_far = max_ending_here = [max_so_far, num].max
-        elsif max_so_far < max_ending_here
-            max_so_far = max_ending_here
-        else max_so_far < 0 && num >=0
-            max_so_far = num
+        sum_ending_here = [sum_ending_here + num, num].max
+        if max_so_far < sum_ending_here
+            max_so_far = sum_ending_here
         end
     end
     
