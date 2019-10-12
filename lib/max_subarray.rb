@@ -5,23 +5,25 @@
 def max_sub_array(nums)
     return nil if nums == []
     
-    highest_positive_streak = nums[0]
+    old_positive_streak = [nums[0], 0].max
+    old_tally = nil
     negative_streak = 0
-    new_positive_streak = nums[0]
-
+    new_positive_streak = [nums[0], 0].max
     max_total = nil
 
     nums[1..-1].each do |num|
-        highest_positive_streak += num if num > 0
+        # old_positive_streak += num if num > 0
         new_positive_streak += num if num > 0
         negative_streak += num if num < 0
 
 
-        current_tally = highest_positive_streak + negative_streak + new_positive_streak 
-            if current_tally > highest_positive_streak  
-                max_total = current_tally
-            elsif num 
-                current_tally
+        current_tally = old_positive_streak + negative_streak + num 
+            if current_tally > old_tally  
+                max_total = old_positive_streak = current_tally
+            elsif old_positive_streak + negative_streak >= 0 
+                new_positive_streak = 0
+            # elsif new_positive_streak > old_positive_streak + negative_streak 
+            #     old_positive_streak = new_positive_streak
             end
 
 
