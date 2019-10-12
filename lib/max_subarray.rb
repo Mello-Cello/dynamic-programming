@@ -44,5 +44,5 @@ def max_sub_array(nums)
         # end
     end
     
-    return max_so_far
+    return max_total
 end
